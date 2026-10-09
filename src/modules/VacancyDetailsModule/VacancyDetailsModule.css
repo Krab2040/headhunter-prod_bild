@@ -1,0 +1,92 @@
+.vacancy-details {
+  padding-top: 24px;
+  padding-bottom: 40px;
+}
+
+.vacancy-details__summary,
+.vacancy-details__description {
+  background-color: #ffffff;
+  border: none;
+  border-radius: 12px;
+}
+
+.vacancy-details__summary {
+  margin-bottom: 24px;
+}
+
+.vacancy-details__title {
+  margin-bottom: 8px;
+  color: #364fc7;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 22px;
+  font-weight: 600;
+  line-height: 28px;
+}
+
+.vacancy-details__meta {
+  margin-bottom: 12px;
+}
+
+.vacancy-details__salary {
+  color: #0f0f10;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 16px;
+  line-height: 24px;
+}
+
+.vacancy-details__experience,
+.vacancy-details__company,
+.vacancy-details__city {
+  color: #0f0f1080;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 14px;
+  line-height: 24px;
+}
+
+.vacancy-details__company {
+  margin-bottom: 8px;
+}
+
+.vacancy-details__badge {
+  width: fit-content;
+  margin-bottom: 4px;
+  font-family: Inter, sans-serif;
+  font-size: 9px;
+  font-weight: 700;
+  line-height: 14px;
+  text-transform: uppercase;
+}
+
+.vacancy-details__badge--remote {
+  color: #ffffff;
+  background-color: #4263eb;
+}
+
+.vacancy-details__badge--office {
+  color: #0f0f1080;
+  background-color: #0f0f101a;
+}
+
+.vacancy-details__badge--hybrid {
+  color: #ffffff;
+  background-color: #0f0f1080;
+}
+
+.vacancy-details__description h2 {
+  margin-bottom: 12px;
+  color: #0f0f10;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 20px;
+}
+
+.vacancy-details__text {
+  color: #0f0f10;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 16px;
+  line-height: 24px;
+  white-space: pre-line;
+}
+
+.vacancy-details__section-title {
+  margin-top: 24px;
+}

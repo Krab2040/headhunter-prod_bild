@@ -4,11 +4,15 @@ import { useState } from 'react'
 import './VacanciesHeader.css'
 
 type VacanciesHeaderProps = {
+  search: string
   onSearch: (search: string) => void
 }
 
-export function VacanciesHeader({ onSearch }: VacanciesHeaderProps) {
-  const [searchValue, setSearchValue] = useState('')
+export function VacanciesHeader({
+  search,
+  onSearch,
+}: VacanciesHeaderProps) {
+  const [searchValue, setSearchValue] = useState(search)
 
   function handleSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault()

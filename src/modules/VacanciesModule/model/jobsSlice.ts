@@ -139,6 +139,11 @@ const jobsSlice = createSlice({
       state.page = 1
     },
 
+    setFilters(state, action: PayloadAction<JobsFilters>) {
+      state.filters = action.payload
+      state.page = 1
+    },
+
     setPage(state, action: PayloadAction<number>) {
       state.page = action.payload
     },
@@ -165,6 +170,7 @@ export const {
   setSearch,
   setCity,
   setSkills,
+  setFilters,
   setPage,
 } = jobsSlice.actions
 

@@ -4,9 +4,10 @@ import './VacancyCard.css'
 
 type VacancyCardProps = {
   vacancy: Vacancy
+  onOpen: () => void
 }
 
-export function VacancyCard({ vacancy }: VacancyCardProps) {
+export function VacancyCard({ vacancy, onOpen, }: VacancyCardProps) {
   return (
     <Card className="vacancy-card">
       <Title order={3} className="vacancy-card__title">
@@ -39,7 +40,10 @@ export function VacancyCard({ vacancy }: VacancyCardProps) {
         {vacancy.city}
       </Text>
 
-      <Button className="vacancy-card__button">
+      <Button
+        className="vacancy-card__button"
+        onClick={onOpen}
+      >
         Смотреть вакансию
       </Button>
     </Card>
