@@ -18,12 +18,15 @@ export function VacanciesLayout({
   return (
     <Container size="lg">
       {header}
-      {cities}
 
-      <div className="vacancies-layout">
-        {skills}
-        {vacancies}
-      </div>
+    <div className="vacancies-layout">
+    <aside className="vacancies-layout__sidebar">
+      {skills}
+      {cities}
+    </aside>
+
+    {vacancies}
+    </div>
     </Container>
   )
 }

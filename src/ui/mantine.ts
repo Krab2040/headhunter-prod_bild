@@ -1,4 +1,4 @@
 export {ActionIcon, Anchor, Badge, Box, Button, Card, Container, Group, Image, Pagination,
- Pill,Stack,Tabs,Text,TextInput,Title,} from '@mantine/core'
+ Pill, Select, Stack,Text,TextInput,Title,} from '@mantine/core'
 
-export {IconPlus, IconSearch, IconUserCircle,} from '@tabler/icons-react'
+export {IconMapPin, IconPlus, IconSearch, IconUserCircle,} from '@tabler/icons-react'

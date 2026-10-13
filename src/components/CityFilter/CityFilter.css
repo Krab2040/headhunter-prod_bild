@@ -1,0 +1,23 @@
+.city-filter {
+  width: 318px;
+  padding: 32px;
+  background-color: #ffffff;
+  border-radius: 10px;
+}
+
+.city-filter__input {
+  height: 48px;
+  color: #0f0f10;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 16px;
+  border-color: #4263eb;
+}
+
+.city-filter__dropdown {
+  font-family: 'Open Sans', sans-serif;
+}
+
+.city-filter__option {
+  min-height: 48px;
+  font-size: 16px;
+}

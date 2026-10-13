@@ -1,7 +1,13 @@
 .vacancies-layout {
   display: grid;
   grid-template-columns: 318px minmax(0, 1fr);
-  gap: 16px;
+  gap: 32px;
   margin-top: 24px;
   align-items: start;
+}
+
+.vacancies-layout__sidebar {
+  display: flex;
+  flex-direction: column;
+  gap: 36px;
 }

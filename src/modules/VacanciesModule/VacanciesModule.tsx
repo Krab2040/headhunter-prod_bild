@@ -1,31 +1,43 @@
 import { useEffect, useRef } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { useNavigate, useSearchParams,} from 'react-router-dom'
-import { CityTabs } from '../../components/CityTabs/CityTabs'
+import { CityFilter, type CityRoute,} from '../../components/CityFilter/CityFilter'
 import { SkillsFilter } from '../../components/SkillsFilter/SkillsFilter'
 import { VacanciesHeader } from '../../components/VacanciesHeader/VacanciesHeader'
 import { VacanciesLayout } from '../../components/VacanciesLayout/VacanciesLayout'
 import { VacancyCard } from '../../components/VacancyCard/VacancyCard'
 import { VacancyList } from '../../components/VacancyList/VacancyList'
-import { fetchJobs, initialSkills, setCity, setFilters, setPage, setSearch, setSkills,} from './model/jobsSlice'
+import { fetchJobs, initialSkills, setFilters, setPage, setSearch, setSkills,} from './model/jobsSlice'
 import type { JobsFilters } from './model/jobsSlice'
 import type { AppDispatch, RootState,} from './model/store'
 
+type VacanciesModuleProps = {
+  activeTab: CityRoute
+  city: string
+}
+
+const cityPaths = {
+  all: '/vacancies',
+  moscow: '/vacancies/moscow',
+  petersburg: '/vacancies/petersburg',
+}
+
 function getFiltersFromUrl(
   searchParams: URLSearchParams,
+  city: string,
 ): JobsFilters {
   const skillsParam = searchParams.get('skills')
 
   const skills = skillsParam === null
-  ? initialSkills
-  : skillsParam
-      .split(',')
-      .map((skill) => skill.trim())
-      .filter(Boolean)
+    ? initialSkills
+    : skillsParam
+        .split(',')
+        .map((skill) => skill.trim())
+        .filter(Boolean)
 
   return {
     search: searchParams.get('search') ?? '',
-    city: searchParams.get('city') ?? '',
+    city,
     skills,
   }
 }
@@ -37,10 +49,6 @@ function getSearchParamsFromFilters(
 
   if (filters.search) {
     searchParams.set('search', filters.search)
-  }
-
-  if (filters.city) {
-    searchParams.set('city', filters.city)
   }
 
   searchParams.set('skills', filters.skills.join(','))
@@ -59,7 +67,10 @@ function areFiltersEqual(
   )
 }
 
-export function VacanciesModule() {
+export function VacanciesModule({
+  activeTab,
+  city,
+}: VacanciesModuleProps) {
   const dispatch = useDispatch<AppDispatch>()
   const navigate = useNavigate()
   const [ searchParams, setSearchParams, ] = useSearchParams()
@@ -71,11 +82,12 @@ export function VacanciesModule() {
   useEffect(() => {
     const urlFilters = getFiltersFromUrl(
       new URLSearchParams(searchParamsString),
+      city,
     )
 
     skipUrlUpdateRef.current = true
     dispatch(setFilters(urlFilters))
-  }, [dispatch, searchParamsString])
+  }, [dispatch, searchParamsString, city])
 
   useEffect(() => {
     if (skipUrlUpdateRef.current) {
@@ -96,6 +108,7 @@ export function VacanciesModule() {
   useEffect(() => {
     const urlFilters = getFiltersFromUrl(
       new URLSearchParams(searchParamsString),
+      city,
     )
 
     if (!areFiltersEqual(filters, urlFilters)) {
@@ -108,7 +121,7 @@ export function VacanciesModule() {
         page,
       }),
     )
-  }, [ dispatch, filters, page, searchParamsString, ])
+  }, [ dispatch, filters, page, searchParamsString, city, ])
 
   return (
     <VacanciesLayout
@@ -120,9 +133,14 @@ export function VacanciesModule() {
         />
       )}
       cities={(
-        <CityTabs
-          city={filters.city}
-          onCityChange={(city) => dispatch(setCity(city))}
+        <CityFilter
+          activeCity={activeTab}
+          onCityChange={(city) => {
+            navigate({
+              pathname: cityPaths[city],
+              search: searchParams.toString(),
+            })
+          }}
         />
       )}
       skills={(
