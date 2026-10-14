@@ -1,2 +1,2 @@
 деплой на vercel:
-https://headhunter-with-router.vercel.app/vacancies
+https://headhunter-prodbild.vercel.app/vacancies
