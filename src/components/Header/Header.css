@@ -33,24 +33,34 @@
 }
 
 .header__link {
-  color: #0f0f10;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: rgb(15 15 16 / 50%);
   font-family: 'Open Sans', sans-serif;
   font-size: 14px;
   font-weight: 500;
   line-height: 155%;
+  text-decoration: none;
 }
 
-.header__link--muted {
-  color: rgb(15 15 16 / 50%);
+.header__nav-link--active {
+  color: #0f0f10;
 }
 
 .header__active-dot {
+  display: none;
+  flex: 0 0 6px;
   width: 6px;
   height: 6px;
   background-color: #4263eb;
   border-radius: 50%;
 }
 
+.header__nav-link--active .header__active-dot {
+  display: block;
+}
+
 .header__about-icon {
-  color: rgb(15 15 16 / 50%);
+  color: currentColor;
 }

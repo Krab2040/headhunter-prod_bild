@@ -1,4 +1,5 @@
-import { Anchor, Box, Group, IconUserCircle, Text } from '../../ui/mantine'
+import { NavLink } from 'react-router-dom'
+import { Box, Group, IconUserCircle, Text } from '../../ui/mantine'
 import Logo from '../../ui/Logo/Logo'
 import './Header.css'
 
@@ -14,27 +15,33 @@ export function Header() {
       </Group>
 
       <Group gap={24} className="header__navigation">
-        <Group gap={6}>
-          <Anchor
-            href="#vacancies"
-            className="header__link"
-          >
-            Вакансии FE
-          </Anchor>
+        <NavLink
+          to="/vacancies"
+          className={({ isActive }) =>
+            `header__link header__nav-link ${
+              isActive ? 'header__nav-link--active' : ''
+            }`
+          }
+        >
+          Вакансии FE
+          <span className="header__active-dot" aria-hidden="true" />
+        </NavLink>
 
-          <Box className="header__active-dot" />
-        </Group>
-
-        <Group gap={6}>
+        <NavLink
+          to="/about"
+          className={({ isActive }) =>
+            `header__link header__nav-link ${
+              isActive ? 'header__nav-link--active' : ''
+            }`
+          }
+        >
           <IconUserCircle
             className="header__about-icon"
             size={16}
           />
-
-          <Text className="header__link header__link--muted">
-            Обо мне
-          </Text>
-        </Group>
+          Обо мне
+          <span className="header__active-dot" aria-hidden="true" />
+        </NavLink>
       </Group>
     </Box>
   )

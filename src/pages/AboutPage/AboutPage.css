@@ -1,0 +1,30 @@
+.about-page {
+  padding: 28px 0;
+}
+
+.about-page__card {
+  width: 100%;
+  max-width: 796px;
+  margin: 0 auto;
+  padding: 32px;
+  background-color: #ffffff;
+  border: none;
+  border-radius: 12px;
+}
+
+.about-page__title {
+  margin-bottom: 14px;
+  color: #0f0f10;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 32px;
+  font-weight: 700;
+  line-height: 42px;
+}
+
+.about-page__text {
+  margin: 0;
+  color: #0f0f10;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 20px;
+  line-height: 30px;
+}

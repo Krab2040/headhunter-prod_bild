@@ -1,14 +1,11 @@
 import { Link } from 'react-router-dom'
 import { Button, Card, Container, Text, Title } from '../../ui/mantine'
-import { HeaderModule } from '../../modules/HeaderModule/HeaderModule'
 import sadDogGif from '../../assets/sad-dog.gif'
 import './NotFoundPage.css'
 
 function NotFoundPage() {
   return (
     <>
-      <HeaderModule />
-
       <main>
         <Container size="sm" className="not-found">
           <Card className="not-found__content">
